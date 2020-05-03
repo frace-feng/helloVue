@@ -1,4 +1,4 @@
-# hello_wkq
+# hello_vue
 
 ## Project setup
 ```
