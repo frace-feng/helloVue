@@ -1,18 +1,17 @@
 <template>
-  <div>
-    <el-row>
-      <input
+  <div class="parent">
+    <el-row class="header">
+      <el-input
         v-model="content"
         placeholder="请输入歌手"
-        @keyup.enter="search"
+        @keyup.enter.native="search"
         style="margin:auto;width:50%"
-      />
-      <el-button type="primary" icon="el-icon-search" @click="search">搜索</el-button>
+      > <el-button slot="append" icon="el-icon-search" @click="search">搜索</el-button></el-input>
+     
     </el-row>
-    <el-row>
-      <el-col :span="12">
-        <div class="grid-content">
-          <div style="height:200px;overflow:auto;border:1px solid rgba(0,0,0,0.1)">
+    <el-row class="middle">
+      <el-col :span="12" class="middle_list">
+          <div  style="height:100%;overflow:auto;border:1px solid rgba(0,0,0,0.1)">
             <div
               v-for="item in musicList"
               :key="item.id"
@@ -29,7 +28,6 @@
               <el-button type="warning" icon="el-icon-video-play" v-show="item.status!=0" circle></el-button>
             </div>
           </div>
-        </div>
       </el-col>
       <el-col :span="12">
         <div class="grid-content">
@@ -41,7 +39,7 @@
         </div>
       </el-col>
     </el-row>
-    <el-row>
+    <el-row class="footer">
       <el-col :span="24">
         <div class="grid-content">
           <audio
@@ -170,5 +168,19 @@ export default {
   to {
     transform: rotateZ(360deg);
   }
+}
+//伸缩
+.parent{
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 73px);
+}
+.middle{
+  flex:1;
+  overflow: hidden;
+}
+.middle_list{
+  overflow: hidden;
+  height:100%;
 }
 </style>
