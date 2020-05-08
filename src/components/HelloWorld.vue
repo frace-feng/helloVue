@@ -33,7 +33,7 @@ export default {
   },
   data: function() {
     return {
-      vuelist: [{ text: "好生气" }, { text: "好吵架" }],
+      vuelist: [{ text: "好漂亮" }, { text: "好帅气" }],
       content: ""
     };
   },

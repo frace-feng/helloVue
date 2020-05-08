@@ -6,35 +6,34 @@
         placeholder="请输入歌手"
         @keyup.enter.native="search"
         style="margin:auto;width:50%"
-      > <el-button slot="append" icon="el-icon-search" @click="search">搜索</el-button></el-input>
-     
+      >
+        <el-button slot="append" icon="el-icon-search" @click="search">搜索</el-button>
+      </el-input>
     </el-row>
     <el-row class="middle">
       <el-col :span="12" class="middle_list">
-          <div  style="height:100%;overflow:auto;border:1px solid rgba(0,0,0,0.1)">
-            <div
-              v-for="item in musicList"
-              :key="item.id"
-              style="text-align:left;margin:5px;border-bottom:1px solid rgba(0,0,0,0.1)"
-            >
-              <el-button
-                size="mini"
-                type="danger"
-                @click="play(item.id)"
-                icon="el-icon-video-play"
-                circle
-              ></el-button>
-              {{item.name}}
-              <el-button type="warning" icon="el-icon-video-play" v-show="item.status!=0" circle></el-button>
-            </div>
+        <div style="height:100%;overflow:auto;border:1px solid rgba(0,0,0,0.1)">
+          <div
+            v-for="item in musicList"
+            :key="item.id"
+            style="text-align:left;margin:5px;border-bottom:1px solid rgba(0,0,0,0.1)"
+          >
+            <el-button
+              size="mini"
+              type="danger"
+              @click="play(item.id)"
+              icon="el-icon-video-play"
+              circle
+            ></el-button>
+            {{item.name}}
+            <el-button type="warning" icon="el-icon-video-play" v-show="item.status!=0" circle></el-button>
           </div>
+        </div>
       </el-col>
-      <el-col :span="12">
-        <div class="grid-content">
-          <div style="height:200px;" class="demo-image">
-            <div class="rotateImg" :class="{ active: playing }">
-              <img :src="picUrl" style="min-width:100%;max-height:100%;" />
-            </div>
+      <el-col :span="12" class="middle_rotate">
+        <div style="height:200px;" class="demo-image">
+          <div class="rotateImg" :class="{ active: playing }">
+            <img :src="picUrl" style="min-width:100%;max-height:100%;" />
           </div>
         </div>
       </el-col>
@@ -58,8 +57,8 @@
 /**歌曲搜索：https://autumnfish.cn/search，get方式，参数：keywords */
 /**歌曲url获取：https://autumnfish.cn/song/url；get方式；参数：id(歌曲id);响应：歌曲的url地址 */
 /**歌曲封面： https://autumnfish.cn/song/detail；get方式；参数：ids（歌曲id）；响应：歌曲详情*/
-/**歌曲评论：/comment/hot?type=0；get方式；参数：id（歌曲id，type固定为0）；响应：评论 */
-/**mv地址获取：/mv/url；get方式；参数：id，响应：url地址 */
+/**歌曲评论：https://autumnfish.cn/comment/hot?type=0；get方式；参数：id（歌曲id，type固定为0）；响应：评论 */
+/**mv地址获取：https://autumnfish.cn/mv/url；get方式；参数：id，响应：url地址 */
 <script>
 const axios = require("axios");
 export default {
@@ -170,17 +169,21 @@ export default {
   }
 }
 //伸缩
-.parent{
+.parent {
   display: flex;
   flex-direction: column;
   height: calc(100vh - 73px);
 }
-.middle{
-  flex:1;
+.middle {
+  flex: 1;
   overflow: hidden;
 }
-.middle_list{
+.middle_list,
+.middle_rotate {
   overflow: hidden;
-  height:100%;
+  height: 100%;
+}
+.demo_image {
+  display: flex;
 }
 </style>
