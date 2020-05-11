@@ -5,13 +5,15 @@ import 'element-ui/lib/theme-chalk/index.css';
 import App from './App.vue';
 import MusicPlay from "./components/MusicPlay.vue";
 import HelloWorld from "./components/HelloWorld.vue";
+import HelloData from "./components/HelloData.vue";
 
 Vue.use(ElementUI);
 Vue.use(VueRouter);
 
 
 const routes = [{ path: '/music', component: MusicPlay },
-    { path: '/', component: HelloWorld },
+{ path: '/', component: HelloWorld },
+{ path: '/data', component: HelloData }
 ]
 const router = new VueRouter({
     mode: 'history',
