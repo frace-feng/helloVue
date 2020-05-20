@@ -4,6 +4,8 @@
       <el-tab-pane label="hello" name="/"></el-tab-pane>
       <el-tab-pane label="music" name="/music"></el-tab-pane>
       <el-tab-pane label="data" name="/data"></el-tab-pane>
+      <el-tab-pane label="for" name="/for"></el-tab-pane>
+      <el-tab-pane label="component" name="/component"></el-tab-pane>
     </el-tabs>
     <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
     <!-- <router-link to="/music" v-if="$router.currentRoute.path !='/music'">Go to music</router-link>
