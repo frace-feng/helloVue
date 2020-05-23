@@ -21,6 +21,24 @@
               <el-table-column prop="date" label="日期" width="180"></el-table-column>
               <el-table-column prop="name" label="姓名" width="180"></el-table-column>
               <el-table-column prop="address" label="地址"></el-table-column>
+              <el-table-column label="操作">
+                <template slot-scope="scope">
+                  <el-button
+                    size="mini"
+                    :disabled="scope.$index===0"
+                    @click="moveUp(scope.$index,scope.row)"
+                  >
+                    <i class="el-icon-arrow-up"></i>
+                  </el-button>
+                  <el-button
+                    size="mini"
+                    :disabled="scope.$index===5"
+                    @click="moveDown(scope.$index,scope.row)"
+                  >
+                    <i class="el-icon-arrow-down"></i>
+                  </el-button>
+                </template>
+              </el-table-column>
             </el-table>
           </template>
         </div>
@@ -29,6 +47,7 @@
   </div>
 </template>
 <script>
+import Vue from "vue";
 Vue.component("tab-home", {
   template: "<div>Home Component</div>"
 });
@@ -73,7 +92,7 @@ export default {
   },
   computed: {
     currentTabComponent: function() {
-      return "tab-" + this.currentTab.toLowerCase;
+      return "tab-" + this.currentTab.toLowerCase();
     }
   }
 };
